@@ -38,7 +38,7 @@
     /// <summary>
     /// The safe script wrapping
     /// </summary>
-    public static readonly string SafeScriptWrapping = "<script type=\"text/javascript\">(function($){{  var rules=function() {{ {0} }};rules();$(document).ajaxSuccess(function(e, xhr, o, d) {{if (o.url.indexOf('form/Index?wffm') > 0) {{ $=jQuery;rules(); }} }})}})(window.$scw || jQuery);</script>";
+    public static readonly string SafeScriptWrapping = "<script type=\"text/javascript\">(function($){{  var rules=function() {{ {0} }};rules();$(document).ajaxSuccess(function(e, xhr, o, d) {{ var urlIndex = o.url.indexOf('form/Index'); if (urlIndex > 0 && (o.url.indexOf('?wffm', urlIndex) > 0 || o.url.indexOf('&wffm', urlIndex) > 0)) {{ $=jQuery;rules(); }} }})}})(window.$scw || jQuery);</script>";
     
   }
 }
